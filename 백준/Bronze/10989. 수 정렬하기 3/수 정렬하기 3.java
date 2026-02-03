@@ -1,0 +1,94 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) throws Exception {
+
+       // Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
+        /* 카운팅 정렬 예시
+         */
+
+        /*
+        int[] array = {0,1,3,0,1};
+
+        CountingSort countingSort = new CountingSort(5,array);
+        countingSort.doCountingSort();
+
+         */
+
+
+        // 2026-01-31
+        /* 백준 - 1920번 : 수 찾기
+         */
+
+        /*
+        // 입력받기
+        int input = scanner.nextInt();
+        HashSet<Integer> inputSet = new HashSet<>();
+
+        for(int i=0; i<input; i++){
+            inputSet.add(scanner.nextInt());
+        }
+
+        int input2 = scanner.nextInt();
+        List<Integer> inputList = new ArrayList<>();
+
+        for(int i=0; i<input2; i++){
+            inputList.add(scanner.nextInt());
+        }
+
+        inputList
+                .stream()
+                .map(x -> inputSet.contains(x) ?1:0)
+                .forEach(System.out::println);
+        */
+
+
+        /* 백준 - 2750번 : 수 정렬하기
+         */
+
+        /*
+        int n = Integer.parseInt(br.readLine());
+        int[] array = new int[n];
+
+        for( int i=0;i<n;i++){
+            array[i] = Integer.parseInt(br.readLine());
+        }
+
+        Arrays.sort(array);
+
+        for(int i:array){
+            sb.append(i).append("\n");
+        }
+
+        System.out.print(sb);
+
+         */
+
+        /* 백준 - 10989번 : 수 정렬하기 3
+         */
+
+        int number = Integer.parseInt(br.readLine());
+        int[] array = new int[10001];
+
+        for(int i=0;i<number;i++){
+            int scan = Integer.parseInt(br.readLine());
+            array[scan]++;
+        }
+
+        for(int i=1;i<=10000;i++){
+            while(array[i]>0){
+                sb.append(i).append("\n");
+                array[i]--;
+            }
+        }
+
+        System.out.print(sb);
+    }
+}
