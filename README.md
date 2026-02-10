@@ -63,7 +63,7 @@
 
 ---
 
-<br><br>
+<br><br><br>
 
 # 📌 Java Collections 시간/공간 복잡도 정리
 
@@ -113,4 +113,106 @@
 - n = 원소 개수, L = 문자열 길이 (문자열 비교 포함 시)
 - **Hash 기반** 자료구조 → 평균 O(1), 최악 O(n)  
 - **Tree 기반** 자료구조 → 항상 O(log n)
+
+
+<br><br><br>
+
+# Java 자료구조 정리 (코테용)
+
+코딩 테스트에서 자주 사용하는 **스택, 큐, 덱, 연결리스트**를 자바 기준으로 정리 각 자료구조별 **기본 메서드**와 **시간/공간 복잡도**를 함께 수록
+
+💡 코딩 테스트 팁
+- 스택, 큐, 덱은 ```ArrayDeque``` 사용이 성능상 유리
+- 연결리스트는 삽입/삭제 위주 문제에서 활용
+- 코테에서는 대부분 ```ArrayDeque``` + ```list```만 알아도 충분
+
+---
+
+## 1️⃣ 스택 (Stack)
+
+- **라이브러리:** `java.util.Stack` 또는 `java.util.ArrayDeque`
+- **특징:** LIFO (Last In First Out)
+
+```java
+Stack<Integer> stack = new Stack<>();
+stack.push(1);    // 추가
+int top = stack.pop();  // 제거 + 반환
+int peek = stack.peek(); // 확인만
+boolean empty = stack.isEmpty(); // 비어있는지 확인
+```
+
+| 연산      | 시간 복잡도 |  공간 복잡도 |
+| ------- | ------ | ------ |
+| push    | O(1)   | O(n) (저장된 원소 수 n)|
+| pop     | O(1)   | O(n) (저장된 원소 수 n)|
+| peek    | O(1)   | O(n) (저장된 원소 수 n)|
+| isEmpty | O(1)   | O(n) (저장된 원소 수 n)|
+
+## 2️⃣ 큐 (Queue)
+
+- **라이브러리:** ```java.util.Queue``` (```LinkedList```,``` ArrayDeque``` 사용)
+- **특징:** FIFO (First In First Out)
+  
+```java
+Queue<Integer> queue = new LinkedList<>();
+queue.offer(1);
+int front = queue.poll();
+int peek = queue.peek();
+```
+
+| 연산    | 시간 복잡도 | 공간 복잡도|
+| ----- | ------ | ------ |
+| offer | O(1)   | O(n) |
+| poll  | O(1)   | O(n) |
+| peek  | O(1)   | O(n) |
+
+## 3️⃣ 덱 (Deque)
+
+- **라이브러리:** ```java.util.Deque```, ```java.util.ArrayDeque``` 추천
+- **특징:** 양쪽 끝에서 삽입/삭제 가능 → 스택과 큐 모두 가능
+
+```java
+Deque<Integer> deque = new ArrayDeque<>();
+deque.addFirst(1);
+deque.addLast(2);
+int first = deque.removeFirst();
+int last = deque.removeLast();
+int peekFirst = deque.peekFirst();
+```
+
+| 연산                    | 시간 복잡도 | 공간 복잡도 |
+| ---------------------- | ------ | ----- |
+| addFirst/addLast       | O(1)   |  O(n) |
+| removeFirst/removeLast | O(1)   |  O(n) |
+| peekFirst/peekLast     | O(1)   |  O(n) |
+
+
+
+## 4️⃣ 연결리스트 (LinkedList)
+
+- 라이브러리: ```java.util.LinkedList```
+- 특징: 노드 기반 구조, 인덱스 접근은 느리지만 삽입/삭제가 빠름
+- 코테 활용: 큐, 덱, 스택으로도 사용 가능
+
+```java
+LinkedList<Integer> list = new LinkedList<>();
+list.add(1);
+list.addFirst(0);
+list.addLast(2);
+int val = list.removeFirst();
+int mid = list.get(1);
+```
+
+| 연산                     | 시간 복잡도 |  공간 복잡도 |
+| ---------------------- | ------ | ------ | 
+| addFirst/addLast       | O(1)   | O(n) |
+| removeFirst/removeLast | O(1)   | O(n) |
+| get(i)                 | O(n)   | O(n) |
+| add(i, x)              | O(n)   | O(n) |
+| remove(i)              | O(n)   | O(n) | 
+
+
+
+
+
 
